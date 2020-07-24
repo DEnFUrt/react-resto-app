@@ -13,6 +13,7 @@
         font-size: 22px;
         margin-bottom: 20px;
         text-align: center;
+        // cursor: pointer;
     }
     &__img {
         width: calc(100% + 40px);
@@ -30,13 +31,18 @@
         }
     }
     &__btn {
-        width: 150px;
+        width: 140px;
         height: 40px;
+        margin: 5px;
         border: none;
         background-color: #29a745;
         border-radius: 4px;
         color: #fff;
         font-size: 16px;
         cursor: pointer;
+        
+        &.back {
+            background-color: #2975a7;
+        }
     }
 }

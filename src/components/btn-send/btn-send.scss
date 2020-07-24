@@ -1,0 +1,19 @@
+.btn {
+  &__wrap {
+    position: relative;
+    width: 100%;
+  
+    &-btn {
+      position: absolute;
+      top: 0;
+      right: 20%;
+      outline: none;
+      height: 50px;
+      padding: 5px 10px 5px 10px;
+      background: none;
+      color:#fff;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+}

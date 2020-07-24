@@ -6,16 +6,13 @@ import {menuLoaded, menuRequested, menuError, addedToCard} from '../../actions';
 import Spinner from '../spinner';
 import Error from '../error';
 
-import './menu-list.scss';
-
-class MenuList extends Component {
+class MenuPage extends Component {
 
     componentDidMount() {
         this.props.menuRequested();
 
         const {RestoService} = this.props;
-                
-        RestoService.getMenuItemsAll()
+        RestoService.getMenuItem(this.props.match.params.id)
         .then(res => this.props.menuLoaded(res))
         .catch(err => this.props.menuError(err.message));
     }
@@ -34,10 +31,18 @@ class MenuList extends Component {
 
         const items = menuItems.map(menuItem => {
             return <MenuListItem
-                        key={menuItem.id}
-                        menuItem={menuItem}
-                        onAddToCart={() => addedToCard(menuItem.id)}
-                    /> 
+                styleProps={{
+                    "width": "50%",
+                    "minWidth": "250px",
+                    "margin": "auto",
+                }}
+                key={menuItem.id}
+                menuItem={menuItem}
+                details={menuItem.details}
+                isOpenCard
+                onBack={this.props.history.goBack}
+                onAddToCart={() => addedToCard(menuItem.id)}
+            /> 
         })
 
         return <View items={items} />
@@ -59,7 +64,7 @@ const mapDispatchToProps = {
     addedToCard
 }
 
-export default WithRestoService()(connect(mapStateToProps, mapDispatchToProps)(MenuList));
+export default WithRestoService()(connect(mapStateToProps, mapDispatchToProps)(MenuPage));
 
 const View = ({items}) => {
     return (

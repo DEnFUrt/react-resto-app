@@ -2,11 +2,16 @@
     padding-top: 120px;
     padding-bottom: 50px;
     min-height: 100vh;
-    &__title {
+    height: 100%;
+    &__title,
+    &__text {
         font-size: 36px;
         color: #fff;
         text-align: center;
         font-weight: 300;
+    }
+    &__text {
+        margin-top: 100px;
     }
     &__list {
         width: 60%;
@@ -44,6 +49,17 @@
         font-size: 20px;
         border-radius: 100%;
         border: 1px solid #fff;
+        cursor: pointer;
+    }
+    &__recount {
+        border: none;
+        outline: none;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        background: none;
+        color: rgb(235, 11, 11);
+        font-size: 1.3rem;
         cursor: pointer;
     }
 }
